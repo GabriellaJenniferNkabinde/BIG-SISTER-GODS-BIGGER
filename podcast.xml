@@ -15,8 +15,8 @@ xmlns:itunes="https://www.itunes.com/dtds/podcast-1.0.dtd">
 <itunes:author> GABRIELLA JENNIFER NKABINDE </itunes:author>
 <itunes:subtitle> short summary of episode </itunes:subtitle>
 <itunes:summary> long description of episode </itunes summary>
-<enclosure url="https://www.BIG SISTER, GODS BIGGER" length="12345678" type;="audio/mpeg"/>
-<guid> https://www.BIG SISTER, GODS BIGGER.com/episode1.mp3 </guid>
+<enclosure url="https://www.BIG SISTER, GODS BIGGER.com/episode1,mp3" length="12345678" type="audio/mpeg"/>
+<guid>"https://www.BIG SISTER, GODS BIGGER.com/episode1.mp3"</guid>
 <pubdate> MON 02 feb 2026 10:50 </pubdate>
 </channel>
 </rss>
