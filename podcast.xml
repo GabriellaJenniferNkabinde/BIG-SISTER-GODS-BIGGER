@@ -1,0 +1,23 @@
+<xml version="1.0" endcoding="UTF-8"?> 
+<RSS version="2.0"
+
+xmlns:itunes="https://www.itunes.com/dtds/podcast-1.0.dtd">
+<channel>
+<title> BIG SISTER, GODS BIGGER </title>
+<link> https://www.BIG SISTER, GODS BIGGER.com </link>
+<description> A HOME FOR ALL THE BIG SISTERS, BIG BROTHERS, BIG MOMS AND DADS, BIG GRANNIES AND GRANDPAS WHO NEED TO KNOW THAT GOD IS BIGGER </description>
+<language> en-us </language>
+<itunes:author> GABRIELLA JENNIFER NKABINDE </itunes:author>
+<itunes:catergory text="education" & "religion"/>
+<itunes:image href="https://www.BIG SISTER,GODS BIIGER.com/podcast-cover.jpg/>
+
+<item>
+<title> episode 1 title </title>
+<itunes:author> GABRIELLA JENNIFER NKABINDE </itunes:author>
+<itunes:subtitle> short summary of episode </itunes:subtitle>
+<itunes:summary> long description of episode </itunes summary>
+<enclosure url="https://www.BIG SISTER, GODS BIGGER" length="12345678" type;="audio/mpeg"/>
+<guid> https://www.BIG SISTER, GODS BIGGER.com/episode1.mp3 </guid>
+<pubdate> MON 02 feb 2026 10:50 </pubdate>
+</channel>
+</rss>
