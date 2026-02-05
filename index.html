@@ -1,28 +1,174 @@
-<!DOCTYPE html> <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faith & Fellowship Podcast</title>
+    <title>THE-SPACE</title>
     <style>
-        /* This is the CSS - It makes the site look 'Personal' */
-        body { font-family: 'Georgia', serif; background-color: #fcfaf7; color: #333; text-align: center; padding: 50px; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #5a675f; }
-        .peace-text { font-style: italic; color: #888; }
+        /* COLORS & FONTS */
+        :root {
+            --teal: #2c7a7b;
+            --sky: #87ceeb;
+            --cream: #fdfaf5;
+            --wood: #7a5c43;
+            --text: #2d3748;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Optima', 'Georgia', serif;
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* INTRO SEQUENCE SCREEN */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--sky), var(--teal));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            transition: opacity 1.5s ease;
+        }
+
+        .intro-text {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.5s ease;
+            font-size: 2rem;
+            padding: 20px;
+            width: 80%;
+        }
+
+        .active { opacity: 1; transform: translateY(0); }
+
+        .btn-container { margin-top: 30px; display: none; }
+        .btn {
+            background: white;
+            color: var(--teal);
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+        .btn:hover { transform: scale(1.1); background: var(--cream); }
+
+        /* MAIN CONTENT (Hidden at first) */
+        #main-site {
+            display: none;
+            padding: 40px 20px;
+            background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1500') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.92);
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 8px solid var(--wood);
+        }
+
+        section { display: none; margin-top: 20px; }
+        h1, h2 { color: var(--teal); }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Welcome to the Space</h1>
-        <p class="peace-text">"Where two or three are gathered in my name, there am I among them."</p>
-        <hr>
-        <p>This is the beginning of our journey together in praise and worship.</p>
-        
-        <div style="margin-top: 30px; border: 2px dashed #ccc; padding: 20px;">
-            Your Podcast Player Will Appear Here
+    <div id="intro-overlay">
+        <div id="text1" class="intro-text"><h1>THE-SPACE</h1></div>
+        <div id="text2" class="intro-text">"Come to me, all you who are weary and burdened, and I will give you rest." <br><small>— Matthew 11:28-30</small></div>
+        <div id="text3" class="intro-text">
+            <h2>Our Father has been waiting for you.</h2>
+            <p>Would you like to come inside?</p>
+            <div class="btn-container" id="choice-buttons">
+                <button class="btn" onclick="goToSite('learning')">Yes</button>
+                <button class="btn" onclick="goToSite('safe')">I'm not sure</button>
+            </div>
         </div>
     </div>
 
+    <div id="main-site">
+        
+        <div id="learning-space" class="content-card">
+            <h1>LEARNING-SPACE</h1>
+            <hr>
+            <div id="listening">
+                <h2>THE-LISTENING-SPACE</h2>
+                <p>[Your Podcasts will appear here after we connect your host]</p>
+            </div>
+            <div id="teaching" style="margin-top:40px;">
+                <h2>THE-TEACHING-SPACE</h2>
+                <p>Exploring Christian topics, faith, and discipleship.</p>
+            </div>
+        </div>
+
+        <div id="safe-space" class="content-card">
+            <h1>THE-SAFE-SPACE</h1>
+            <p>A quiet place for your heart.</p>
+            <div style="background: #eef; padding: 20px; border-radius: 10px;">
+                <strong>AI Companion:</strong> [AI Chat coming soon...]
+            </div>
+            <div style="margin-top: 20px;">
+                <h3>Bible Translations</h3>
+                <p>Select: ESV | KJV | CSB</p>
+            </div>
+            <div style="margin-top: 40px;">
+                <h2>THE-SHARING-SPACE</h2>
+                <p>Share your testimony. Your story matters.</p>
+                <button class="btn" style="background: var(--teal); color: white;">Open Testimony Form</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // THE ANIMATION LOGIC
+        const t1 = document.getElementById('text1');
+        const t2 = document.getElementById('text2');
+        const t3 = document.getElementById('text3');
+        const btns = document.getElementById('choice-buttons');
+
+        // Sequence: Show 1, hide, show 2, hide, show 3 + buttons
+        setTimeout(() => { t1.classList.add('active'); }, 500);
+        setTimeout(() => { t1.classList.remove('active'); }, 3000);
+        
+        setTimeout(() => { t2.classList.add('active'); }, 4500);
+        setTimeout(() => { t2.classList.remove('active'); }, 8500);
+        
+        setTimeout(() => { 
+            t3.classList.add('active'); 
+            btns.style.display = 'block';
+        }, 10000);
+
+        function goToSite(path) {
+            document.getElementById('intro-overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('intro-overlay').style.display = 'none';
+                document.getElementById('main-site').style.display = 'block';
+                if(path === 'learning') {
+                    document.getElementById('learning-space').style.display = 'block';
+                } else {
+                    document.getElementById('safe-space').style.display = 'block';
+                }
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
